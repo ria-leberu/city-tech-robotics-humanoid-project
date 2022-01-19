@@ -1,0 +1,14 @@
+COM connection established
+
+Command
+
+WR 16 0 //Set Status Return to 0
+
+WR 30 0 0 //Clockwise
+WR 30 FF 03 //CounterClockwise
+
+Oscilloscope Settings
+M 800us
+Trigger 11.6V
+Falling Slope
+Source 3, Edge Trigger

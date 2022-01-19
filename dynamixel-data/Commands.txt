@@ -1,0 +1,88 @@
+************************************************************
+Bioloid Command Set (to the best of my knowledge)
+************************************************************
+
+There are four different command modes.  
+
+Executive (my name for it) 
+Manage
+Progam
+Run
+
+Any of the four command modes can be entered from startup mode; that is when the mode LEDs are flashing.  This is the mode the controller enters after you press the power switch or the mode (reset) button.  Three of the modes, Manage, Program and Run can be selected manually using the mode button followed by the start button.  To enter one of the command modes programmatically you must first connect to the controller using a terminal emulator (like RoboPlus Terminal) at 56Kb with 8N1 encoding.  Once in startup mode (LEDs flashing) enter the lowercase character v at the terminal.  This enables "verbose" communications with the user (again my name for it).  Now select the command mode by typing one of the four uppercase characters listed below.  Once you have entered the selected mode you will receive the appropriate command prompt.  The mode selection characters and command prompts are as follows: 
+
+N	Program mode	]
+T	Run mode		%
+E 	Executive mode	{[ME]}
+M	Manage mode		{[nnn:]}		(where nnn is the current CID)
+
+Program mode starts the onboard motion editor function for the controller.  The onboard editor is very primitive and has been largely superceded by RoboPlus Motion.  The command language for this function is already documented by Robotis in some of their older manuals.
+
+Run mode just runs the current BCP program on the controller.
+
+Executive mode is used primarily by RoboPlus Motion.  The command list and brief descriptions are:
+
+LIST		return list of motion pages
+PLAY		play a motion page in flash
+RPLAY		play the motion page in RAM
+GET		return servo goal position
+SET		set servo goal position
+ON		turn on servo torque
+OFF		turn off servo torque
+OGET		return servo offsets
+OSET		set servo offsets
+UPLOAD	return motion data 
+DOWNLOAD	transmit motion data to flash
+RDOWNLOAD	transmit a motion page to RAM
+GO		set goal positions for all 26 servos at once
+SCAN		PING devices on the  dynamixel bus
+EXIT		return to startup mode
+
+Manage mode has the most commands only a few of which have ever been documented.  Beware that some of these commands can be quite destructive.  The current CID (control ID) is set using the CID command and its value appears in the manage mode command prompt.  Other manage mode commands like PING and READ use the CID as the command target.  CID 200 is reserved for the controller itself.  You should think carefully before using the DEMO, TEST or ID commands on any assembled robot!!!  That said, here is the command list along with a brief description of each.  
+
+CID		change the control ID
+READ		read data from control table
+RD		same as READ
+R		same as READ
+WRITE		write data to control table
+WR		same as WRITE
+W		same as WRITE
+SYNC_WR	issue SYNC_WRITE command
+SWR		same as SYNC_WRITE
+REG_WR	write registered data to control table
+ACTION	activate registered write function
+ACT		same as above
+DUMP		display entire control table
+D		same as DUMP
+GO		move servo to position at selected speed
+G		same as GO
+HEX		display and accept data in hexadecimal
+DEC		display and accept data in decimal
+RESET		issue servo reset command
+DRESET	issue servo digital reset command
+PING		issue PING command
+SCAN		scan dynamixel bus with PING commands
+SEARCH	scan dynamixel bus at all speeds using PING commands
+LED		toggle dynamixel LEDs one at a time
+BAUD		set dynamixel baud rate
+RUN		single step through BCP program with trace active
+MONITOR	trace dynamixel commands and responses
+CHK		continuously read selected control table entry (ESC to exit) 
+TOSS		enters TOSS mode (passthrough mode)
+T		same as TOSS
+H		pass hexadecimal data directly to dynamixel bus
+HELP		display help messages
+RETURN	return from MONITOR mode
+RET		same as RETURN
+EXIT		exit to startup mode
+
+Stay away from these commands!!!
+
+ID		change the ID of all attached dynamixels
+DEMO		moves the attached dynamixels around
+TEST		similar to DEMO command
+CALC		calculate the calibration centering offset (System Data 2)
+CALD		set down calibration to the current position
+CALU		set up calibration to the current position
+
+

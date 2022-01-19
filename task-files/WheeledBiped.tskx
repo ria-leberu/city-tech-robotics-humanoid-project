@@ -1,0 +1,119 @@
+﻿version 4.00
+cm_version 1.0
+platform CM-510
+o // param_text:Created : 6 / 22 / 2017
+- 
+o main
+o begin
+o load param_dest:cm:22 param_src:channel_num:0
+o while(1)
+o begin
+o if param_src:cm:2 lop:== param_src:bool_num:1 rop:then
+o begin
+o // param_text:Transform into wheeled mode
+o load param_dest:var:ReceiveData param_src:cm:1
+o if param_src:var:ReceiveData lop:== param_src:rc100z_num:768 rop:then
+o begin
+o load param_dest:motion:-:50 param_src:dec_num:184
+o end
+o // param_text:Move robot forward and straighten hind wheels
+o if param_src:var:ReceiveData lop:== param_src:rc100z_num:1 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:512
+o load param_dest:motor:10:106 param_src:position_num:512
+o load param_dest:motor:19:107 param_src:dir_num:1924
+o load param_dest:motor:20:107 param_src:dir_num:900
+o end
+o // param_text:Change position of hind legs and turn robot left while moving forward
+o elseif param_src:var:ReceiveData lop:== param_src:rc100z_num:4 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:666
+o load param_dest:motor:10:106 param_src:position_num:666
+o load param_dest:motor:19:107 param_src:dir_num:1824
+o load param_dest:motor:20:107 param_src:dir_num:500
+o end
+- 
+o elseif param_src:var:ReceiveData lop:== param_src:rc100z_num:8 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:358
+o load param_dest:motor:10:106 param_src:position_num:358
+o load param_dest:motor:19:107 param_src:dir_num:1524
+o load param_dest:motor:20:107 param_src:dir_num:800
+o end
+o // param_text:Straighten hind wheels and move robot backward
+o elseif param_src:var:ReceiveData lop:== param_src:rc100z_num:2 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:512
+o load param_dest:motor:10:106 param_src:position_num:512
+o load param_dest:motor:19:107 param_src:dir_num:500
+o load param_dest:motor:20:107 param_src:dir_num:1524
+o end
+o elseif param_src:var:ReceiveData lop:== param_src:rc100z_num:6 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:666
+o load param_dest:motor:10:106 param_src:position_num:666
+o load param_dest:motor:19:107 param_src:dir_num:800
+o load param_dest:motor:20:107 param_src:dir_num:1524
+o end
+o elseif param_src:var:ReceiveData lop:== param_src:rc100z_num:10 rop:then
+o begin
+o load param_dest:motor:9:106 param_src:position_num:358
+o load param_dest:motor:10:106 param_src:position_num:358
+o load param_dest:motor:19:107 param_src:dir_num:500
+o load param_dest:motor:20:107 param_src:dir_num:1824
+o end
+o else
+o begin
+o load param_dest:motor:9:106 param_src:position_num:512
+o load param_dest:motor:10:106 param_src:position_num:512
+o load param_dest:motor:19:107 param_src:dir_num:0
+o load param_dest:motor:20:107 param_src:dir_num:0
+o end
+o end
+o end
+o end
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
